@@ -2,9 +2,9 @@ import React from 'react';
 
 const Home = () => {
     return (
-        <div className='pt-20 min-h-screen'>
+        <main className='pt-20 min-h-screen bg-slate-100'>
             <h2>This is home</h2>
-        </div>
+        </main>
     );
 };
 

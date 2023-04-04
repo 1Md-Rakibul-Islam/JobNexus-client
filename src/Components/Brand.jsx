@@ -1,15 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import nexus_jobs from '../assets/images/nexus_jobs_logo.png';
 
 const Brand = () => {
     return (
         <div>
             <Link to="/">
                 <div className='flex items-center gap-2'>
-                    <img className='w-[50px] h-[40px] rounded-md' src='https://i.ibb.co/zfMR22m/home-decor-logo.jpg' alt='' />
-                    <button className='text-xl font-bold'>
-                        <span className="text-3xl text-primary italic">s</span>okher <span className="text-3xl text-primary italic"> F</span>urniture
-                    </button>
+                    <img className=' w-36 h-14 rounded-md' src={nexus_jobs} alt='' />
                 </div>
             </Link>
         </div>
