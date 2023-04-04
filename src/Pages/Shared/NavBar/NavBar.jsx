@@ -1,27 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaMailBulk, FaRegEnvelope, FaUser } from "react-icons/fa";
+import { FaBars, FaMailBulk, FaRegEnvelope, FaTimes, FaUser } from "react-icons/fa";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import Brand from "../../../Components/Brand";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
 
+  const [openNav, setOpenNav] = useState(false);
+
   const handelLogOut = () => {
     logOut().then().catch();
   };
+
+
 
   const navItems = [
     "Jobs", "Companies", "Service", "About"
   ] 
 
   return (
-    <nav className="w-full fixed bg-white md:px-10 px-2 py-2">
+    <nav className={`w-full fixed bg-white md:px-10 px-2 py-2  ${ openNav && "inset-0 bg-white/20 bg-opacity-25 backdrop-blur-sm"}`}>
       <div className="flex gap-3 justify-between items-center">
         <Brand />
         <div className="md:block hidden w-auto" >
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-4 md:mt-0 md:border-0 md:bg-white">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-4 md:mt-0 md:border-0 ">
             { 
               navItems.map(navItem => (
                   <li>
@@ -52,12 +56,28 @@ const NavBar = () => {
         <div class="flex items-center space-x-5">
           <FaRegEnvelope className="text-2xl" />
           <div className="flex items-center space-x-5 rounded-full p-2 border-2 border-slate-400">
-            <FaBars className="text-xl" />
+            <button onClick={() => setOpenNav(true)}><FaBars className="text-xl" /></button> 
             <img class="w-[30px] h-[30px] rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="" />
           </div>
         </div>
+      </div>
 
-
+      <div className={`absolute ${openNav ? "z-50 block transform transition-opacity duration-1000" : "hidden"} z-50 bg-white rounded-tl-3xl md:w-[380px] w-[300px] h-[100vh] top-0 right-0`}>
+          <div className="p-10">
+            <div onClick={() => setOpenNav(false)} className="mb-10" >
+              <FaTimes className="text-3xl absolute right-4 top-4" />
+            </div>
+            <div className="mt-4" >
+              <ul className="font-medium flex flex-col justify-center rounded-lg ">
+                { 
+                  navItems.map(navItem => (
+                      <li className="my-2">
+                        <a href="#" className="">{navItem}</a>
+                      </li>
+                  ))}
+              </ul>
+            </div>
+          </div>
       </div>
     </nav>
   );
