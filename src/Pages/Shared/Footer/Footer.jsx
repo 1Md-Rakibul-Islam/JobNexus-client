@@ -3,7 +3,7 @@ import Brand from '../../../Components/Brand';
 
 const Footer = () => {
     return (
-        <footer className="px-4 w-full py-10 divide-y bg-gray-900 text-gray-100">
+        <footer className="px-4 z-50 w-full py-10 divide-y bg-gray-900 text-gray-100">
             <div className="container flex flex-col justify-between pt-20 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
                     <Brand/>

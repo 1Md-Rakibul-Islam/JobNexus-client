@@ -34,7 +34,7 @@ const NavBar = () => {
               ))}
           </ul>
         </div>   
-        <form className="md:block hidden">
+        <div className="sm:block hidden">
             <div className="flex">
                 <select id="default" class=" z-10 inline-flex items-center py-2 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-full hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 ">
                     <option selected>Categories</option>
@@ -51,7 +51,7 @@ const NavBar = () => {
                     </button>
                 </div>
             </div>
-        </form>
+        </div>
         
         <div class="flex items-center space-x-5">
           <FaRegEnvelope className="text-2xl" />
@@ -62,7 +62,7 @@ const NavBar = () => {
         </div>
       </div>
 
-      <div className={`absolute ${openNav ? "z-50 block transform transition-opacity duration-1000" : "hidden"} z-50 bg-white rounded-tl-3xl md:w-[380px] w-[300px] h-[100vh] top-0 right-0`}>
+      <div className={`absolute ${openNav ? "z-50 block transdiv transition-opacity duration-1000" : "hidden"} z-50 bg-white rounded-tl-3xl md:w-[380px] w-[300px] h-[100vh] top-0 right-0`}>
           <div className="p-10">
             <div onClick={() => setOpenNav(false)} className="mb-10" >
               <FaTimes className="text-3xl absolute right-4 top-4" />
