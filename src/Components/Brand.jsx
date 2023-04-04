@@ -7,7 +7,7 @@ const Brand = () => {
         <div>
             <Link to="/">
                 <div className='flex items-center gap-2'>
-                    <img className=' w-36 h-14 rounded-md' src={nexus_jobs} alt='' />
+                    <img className=' w-[120px] h-auto rounded-md' src={nexus_jobs} alt='' />
                 </div>
             </Link>
         </div>
