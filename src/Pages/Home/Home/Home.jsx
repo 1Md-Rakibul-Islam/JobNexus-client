@@ -1,9 +1,9 @@
 import React from 'react';
 import JobCard from '../../../Components/JobCard';
-import Loading from '../../Shared/Loading/Loading';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import SideBarNavProfile from '../../../Components/SideBarNavProfile';
+import CardLoading from '../../Shared/Loading/Loading';
 
 const Home = () => {
 
@@ -20,13 +20,13 @@ const Home = () => {
       } = useQuery({
         queryKey: ["jobs"],
         queryFn: async () => {
-          const { data } = await axios.get("jobs.json");
+          const { data } = await axios.get("https://nexusjobs.vercel.app/jobs");
           return data;
         },
       });
       
     if (isLoading) {
-        return <Loading />
+        return <CardLoading />
     }
     console.log(jobs);
 
@@ -44,7 +44,7 @@ const Home = () => {
                     }
                 </div>
                 <div className='lg:block hidden bg-white min-w-[190px] h-[80vh] rounded-md'>
-g                  
+                  
                 </div>
             </div>
         </main>

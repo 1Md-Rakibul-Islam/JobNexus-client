@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaMailBulk, FaRegEnvelope, FaTimes, FaUser } from "react-icons/fa";
+import { FaBars, FaBox, FaHome, FaMailBulk, FaRegEnvelope, FaTimes, FaUser } from "react-icons/fa";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import Brand from "../../../Components/Brand";
 import SideBarNavProfile from "../../../Components/SideBarNavProfile";
+import { jobsCategories } from "../../../API/jobsCategories";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const [openNav, setOpenNav] = useState(false);
 
+  const {jobCategories, isCategoriesLoading, refetchCategories} = jobsCategories();
+
+  console.log(jobCategories);
+ 
   const handelLogOut = () => {
     logOut().then().catch();
   };
@@ -22,7 +27,7 @@ const NavBar = () => {
   ] 
 
   return (
-    <nav className={`w-full fixed bg-white md:px-10 px-2 py-2  ${ openNav && "inset-0 bg-white/20 bg-opacity-25 backdrop-blur-sm"}`}>
+    <nav className={`w-full fixed bg-white md:px-10 px-2 py-2 z-10  ${ openNav && "inset-0 bg-white/20 bg-opacity-25 backdrop-blur-sm"}`}>
       <div className="flex gap-3 justify-between items-center">
         <Brand />
         <div className="md:block hidden w-auto" >
@@ -35,14 +40,13 @@ const NavBar = () => {
               ))}
           </ul>
         </div>   
-        <div className="sm:block hidden">
+        <div className="sm:block hidden ">
             <div className="flex">
-                <select id="default" class=" z-10 inline-flex items-center py-2 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-full hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 ">
+                <select id="default" class=" inline-flex items-center py-2 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-full hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 ">
                     <option selected>Categories</option>
-                    <option value="US">United States</option>
-                    <option value="CA">Canada</option>
-                    <option value="FR">France</option>
-                    <option value="DE">Germany</option>
+                    {
+                      jobCategories?.map( jobCategory => <option key={jobCategory?._id} value={jobCategory?.categoryName}>{jobCategory?.categoryName}</option>)
+                    }
                 </select>
                 <div className="relative w-full">
                     <input type="search" id="search-dropdown" className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-full border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Search your job" required />
@@ -70,6 +74,15 @@ const NavBar = () => {
             </div>
             <div className="mt-4" >
               <SideBarNavProfile />
+                <li className='flex items-center my-4 gap-4'> <FaBox className='text-xl text-slate-0' /> Dashboard</li> 
+                {
+                    user?.email ? <li onClick={ () => handelLogOut()} className='flex items-center my-4 gap-4'> Logout</li>
+                    :
+                    <>
+                        <Link to={'/login'}><li className='flex items-center my-4 gap-4'> Login</li> </Link>
+                        <Link to={'/signup'}><li className='flex items-center my-4 gap-4'> Register</li></Link>
+                    </>
+                }
             </div>
           </div>
       </div>

@@ -8,7 +8,6 @@ import { useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import useToken from "../../Hooks/useToken";
 import { GoogleAuthProvider } from "firebase/auth";
-import Loading from "../../Pages/Shared/Loading/Loading";
 
 
 const SignUp = () => {
@@ -24,8 +23,8 @@ const SignUp = () => {
   const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
   const googleProvider = new GoogleAuthProvider();
-  const [buyer, setBuyer] = useState("");
-  const [isBuyer, isBuyerLoading] = useBuyer(buyer);
+  // const [buyer, setBuyer] = useState("");
+  // const [isBuyer, isBuyerLoading] = useBuyer(buyer);
 
   // console.log(token, "gvjvhh");
 
@@ -35,44 +34,44 @@ const SignUp = () => {
 
   const handelSignUp = (data) => {
     console.log(data);
-    const imageHostKey = import.meta.env.VITE_imgbb_key;
+    // const imageHostKey = import.meta.env.VITE_imgbb_key;
 
-    setSignUpError("");
-    // create user
-    createUser(data.email, data.password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
+    // setSignUpError("");
+    // // create user
+    // createUser(data.email, data.password)
+    //   .then((result) => {
+    //     const user = result.user;
+    //     console.log(user);
 
-        const image = data.photo[0];
-        const formData = new FormData();
-        formData.append("image", image);
+    //     const image = data.photo[0];
+    //     const formData = new FormData();
+    //     formData.append("image", image);
 
-        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
-        fetch(url, {
-          method: "POST",
-          body: formData,
-        })
-          .then((res) => res.json())
-          .then((imageData) => {
-            if (imageData.status) {
-              const userInfo = {
-                displayName: data.name,
-                photoURL: imageData.data.url,
-              };
+    //     const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+    //     fetch(url, {
+    //       method: "POST",
+    //       body: formData,
+    //     })
+    //       .then((res) => res.json())
+    //       .then((imageData) => {
+    //         if (imageData.status) {
+    //           const userInfo = {
+    //             displayName: data.name,
+    //             photoURL: imageData.data.url,
+    //           };
 
-              updateUser(userInfo)
-                .then(() => {
-                  saveUser(data.option, data.name, data.email, imageData.data.url);
-                })
-                .catch((error) => console.log(error));
-            }
-          });
-      })
-      .catch((error) => {
-        setSignUpError(error.message);
-        console.log(error);
-      });
+    //           updateUser(userInfo)
+    //             .then(() => {
+    //               saveUser(data.option, data.name, data.email, imageData.data.url);
+    //             })
+    //             .catch((error) => console.log(error));
+    //         }
+    //       });
+    //   })
+    //   .catch((error) => {
+    //     setSignUpError(error.message);
+    //     console.log(error);
+    //   });
   };
 
   // google login
@@ -81,12 +80,7 @@ const SignUp = () => {
     loginProvider(googleProvider)
       .then((result) => {
         const user = result.user;
-        // console.log(user.email);
-        setBuyer(user.email);
-        // if (isBuyerLoading) {
-        //   return <Loading></Loading>
-        // }
-        // console.log('buy:', buyer)
+        // setBuyer(user.email);
         saveUser("buyer", user?.displayName, user?.email, user?.photoURL);
 
         setLoading(false);
@@ -168,12 +162,14 @@ const SignUp = () => {
                 className="select select-bordered"
               >
                 <option disabled selected>
-                  Whis account are you want to create?
+                  Who are you?
                 </option>
-                <option value="buyer" selected>
-                  Buyer
+                <option value="employee" selected>
+                  Employee
                 </option>
-                <option value="seller">Seller</option>
+                <option value="recruiter">
+                  Recruiter
+                </option>
               </select>
               {errors?.email && <small className="text-error mt-2">{errors.email?.message}</small>}
             </div>

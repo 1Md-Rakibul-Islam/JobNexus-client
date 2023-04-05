@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaBookOpen, FaBriefcase, FaHome, FaHotel } from 'react-icons/fa';
+import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const SideBarNavProfile = () => {
+
+    const {user} = useContext(AuthContext);
+
     return (
         <div className=''>
             <div className='flex flex-col items-center justify-center gap-2'>
@@ -16,11 +20,11 @@ const SideBarNavProfile = () => {
                 
             </div>   
             <ul className=''>
-                <li className='flex items-center my-4 gap-4'> <FaHome className='text-2xl text-slate-00' /> My Home</li>
-                <li className='flex items-center my-4 gap-4'> <FaBriefcase className='text-xl text-slate-00' /> Jobs</li>
-                <li className='flex items-center my-4 gap-4'> <FaHotel className='text-xl text-slate-00' /> Companies</li>
-                <li className='flex items-center my-4 gap-4'> <FaBookOpen className='text-xl text-slate-00' /> Blogs</li>
-                <li className='flex items-center my-4 gap-4'> <FaBookOpen className='text-xl text-slate-00' /> About US</li>
+                <li className='flex items-center my-4 gap-4'> <FaHome className='text-2xl text-slate-0' /> My Home</li>
+                <li className='flex items-center my-4 gap-4'> <FaBriefcase className='text-xl text-slate-0' /> Jobs</li>
+                <li className='flex items-center my-4 gap-4'> <FaHotel className='text-xl text-slate-0' /> Companies</li>
+                <li className='flex items-center my-4 gap-4'> <FaBookOpen className='text-xl text-slate-0' /> Blogs</li>
+                {/* <li className='flex items-center my-4 gap-4'> <FaBookOpen className='text-xl text-slate-0' /> About US</li>    */}
             </ul>
         </div>
     );
