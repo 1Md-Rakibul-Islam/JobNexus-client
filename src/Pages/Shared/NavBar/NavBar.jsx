@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FaBars, FaMailBulk, FaRegEnvelope, FaTimes, FaUser } from "react-icons/fa";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import Brand from "../../../Components/Brand";
+import SideBarNavProfile from "../../../Components/SideBarNavProfile";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -17,7 +18,7 @@ const NavBar = () => {
 
 
   const navItems = [
-    "Jobs", "Companies", "Service", "About"
+    "Jobs", "Companies", "Service",
   ] 
 
   return (
@@ -68,14 +69,7 @@ const NavBar = () => {
               <FaTimes className="text-3xl absolute right-4 top-4" />
             </div>
             <div className="mt-4" >
-              <ul className="font-medium flex flex-col justify-center rounded-lg ">
-                { 
-                  navItems.map(navItem => (
-                      <li className="my-2">
-                        <a href="#" className="">{navItem}</a>
-                      </li>
-                  ))}
-              </ul>
+              <SideBarNavProfile />
             </div>
           </div>
       </div>
