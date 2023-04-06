@@ -19,7 +19,7 @@ const CardLoading = () => {
               </div>
             </div>
           </div>
-          <div className='mt-5 mb-40 w-full overflow-y-scroll  max-h-screen space-y-5'>
+          <div className='mt-5 mb-40 w-full overflow-y-scroll  min-h-screen space-y-5'>
           <div className="flex flex-col w-full rounded-md shadow-md h-34 animate-pulse">
             <div className="h-36 rounded-t bg-gray-400"></div>
             <div className="flex-1 px-4 py-8 space-y-4 sm:p-8 bg-gray-300">

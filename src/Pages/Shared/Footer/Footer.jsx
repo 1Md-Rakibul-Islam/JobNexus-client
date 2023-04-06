@@ -3,7 +3,7 @@ import Brand from '../../../Components/Brand';
 
 const Footer = () => {
     return (
-        <footer className="px-4 z-50 w-full py-10 divide-y bg-gray-900 text-gray-100">
+        <footer className="px-4 z-50 w-full py-50 divide-y bg-gray-900 text-white bg-gradient-to-r from-blue-400 via-blue-700 to-blue-900 hover:bg-gradient-to-br focus:ring-4 focus:outline-none font-medium text-sm text-center">
             <div className="container flex flex-col justify-between pt-20 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
                     <Brand/>
@@ -70,7 +70,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-center text-gray-400">© 2023 Sokher Furnuture Company Co. All rights reserved.</div>
+            <div className="py-6 text-sm text-center text-gray-400">© 2023 NexusJobs. All rights reserved.</div>
         </footer>
     );
 };
