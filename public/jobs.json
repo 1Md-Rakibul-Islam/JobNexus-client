@@ -38,7 +38,7 @@
         }
         ,
         {
-        "categoryId": "1",
+        "categoryId": "",
         "categoryName": "Web Development",
         "jobTitle": "Front-End Developer",
         "companyId": "",
@@ -57,7 +57,7 @@
         }
         ,       
         {
-        "categoryId": "1",
+        "categoryId": "",
         "categoryName": "Web Development",
         "jobTitle": "Front-End Developer",
         "companyId": "",
@@ -76,7 +76,7 @@
         }
         ,
         {
-        "categoryId": "2",
+        "categoryId": "",
         "categoryName": "Mobile Development",
         "jobTitle": "iOS Developer",
         "companyId": "",
@@ -95,8 +95,8 @@
         }
         ,
         {
-        "categoryId": "3",
-        "categoryName": "Web Development",
+        "categoryId": "",
+        "categoryName": "Software Development",
         "jobTitle": "Full-Stack Developer",
         "companyId": "",
         "companyName": "LMN Solutions",

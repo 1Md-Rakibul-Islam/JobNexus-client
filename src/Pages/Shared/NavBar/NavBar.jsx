@@ -33,7 +33,7 @@ const NavBar = () => {
 
 
   const navItems = [
-    "Jobs", "Companies", "Service",
+    "Companies", "Service",
   ] 
 
   return (
@@ -42,10 +42,13 @@ const NavBar = () => {
         <Brand />
         <div className="md:block hidden w-auto" >
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-4 md:mt-0 md:border-0 ">
+            <li>
+              <Link to='/'>Jobs</Link>
+            </li>
             { 
               navItems.map(navItem => (
                   <li>
-                    <a href="#" className="">{navItem}</a>
+                    <Link to={`${navItem}`}>{navItem}</Link>
                   </li>
               ))}
           </ul>
@@ -61,8 +64,10 @@ const NavBar = () => {
                 </select> */}
                 <div className="flex justify-center">
                     <button onClick={ () => setOpenPopup(i => !i)} className="flex items-center justify-between w-full pl-3 py-10 border-l-gray-50 border-l-2 border border-gray-300 pr-4 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto 
-                       text-sm font-medium text-center text-gray-900 bg-gray-100 rounded-l-full hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 
-                    ">Dropdown <svg className="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+                       text-sm font-medium text-center text-gray-900 bg-gray-100 rounded-l-full hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 ">
+                        Category 
+                        <svg className="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg> 
+                    </button>
                       {
                         openPopup && <div className="absolute top-20 z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                         <ul className="py-2 text-sm text-gray-700" >
@@ -89,7 +94,7 @@ const NavBar = () => {
           <FaRegEnvelope className="text-2xl" />
           <div className="flex items-center space-x-5 rounded-full p-2 border-2 border-slate-400">
             <button onClick={() => setOpenNav(true)}><FaBars className="text-xl" /></button> 
-            <img className="w-[30px] h-[30px] rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="" />
+            <img className="w-[30px] h-[30px] rounded-full" src={user?.photoURL} alt="" />
           </div>
         </div>
       </div>

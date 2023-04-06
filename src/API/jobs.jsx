@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const jobs = (categoryName = undefined) => {
 
-    console.log(categoryName);
+    // console.log(categoryName);
     const {
         data: job,
         isLoading: isJobsLoading,

@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/jobs/category/:categoryName",
-        loader: async ({params}) => await fetch(`http://localhost:5000/jobs/category/${params.categoryName}`),
+        loader: async ({params}) => await fetch(`https://nexusjobs.vercel.app/jobs/category/${params.categoryName}`),
         element: <Categories></Categories>,
       },
       // path: "/project/details/:_id",

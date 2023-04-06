@@ -14,6 +14,9 @@ const Categories = () => {
                         job={job}
                     ></JobCard>)
                 }
+                {
+                    jobs?.length === 0 && <h2 className='text-5xl pt-20 text-center font-semibold'>'No Jobs Availavale on this category'</h2> 
+                }
             </div>
         </section>
     );
