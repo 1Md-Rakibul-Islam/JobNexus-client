@@ -5,7 +5,7 @@ const useToken = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/jwt?email=${email}`)
+      fetch(`https://nexusjobs.vercel.app/jwt?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.accessToken) {

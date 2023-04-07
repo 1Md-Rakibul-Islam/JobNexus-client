@@ -7,12 +7,6 @@ import CardLoading from '../../Shared/Loading/Loading';
 
 const Home = () => {
 
-    // const { data, isLoading, isError, error } = useQuery(
-        
-    //     'jobs', () => {
-    //     return axios.get('jobs.json').then((res) => res.data);
-    //   });
-
     const [loading, setLoading] = useState(false);
 
     const [pageNumber, setPageNumber] = useState(1);

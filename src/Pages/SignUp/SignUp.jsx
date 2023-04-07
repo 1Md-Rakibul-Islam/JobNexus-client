@@ -33,45 +33,47 @@ const SignUp = () => {
   }
 
   const handelSignUp = (data) => {
-    console.log(data);
-    // const imageHostKey = import.meta.env.VITE_imgbb_key;
+    // console.log(data);
+    const imageHostKey = import.meta.env.VITE_imgbb_key;
 
-    // setSignUpError("");
-    // // create user
-    // createUser(data.email, data.password)
-    //   .then((result) => {
-    //     const user = result.user;
-    //     console.log(user);
+    setSignUpError("");
+    // create user
+    createUser(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
 
-    //     const image = data.photo[0];
-    //     const formData = new FormData();
-    //     formData.append("image", image);
+        const image = data.photo[0];
+        const formData = new FormData();
+        formData.append("image", image);
 
-    //     const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
-    //     fetch(url, {
-    //       method: "POST",
-    //       body: formData,
-    //     })
-    //       .then((res) => res.json())
-    //       .then((imageData) => {
-    //         if (imageData.status) {
-    //           const userInfo = {
-    //             displayName: data.name,
-    //             photoURL: imageData.data.url,
-    //           };
+        const url = `https://api.imgbb.com/1/upload?key=06ce6f925ad5f14c1f00b8790294f2a5`;
+        // const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+        fetch(url, {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.json())
+          .then((imageData) => {
+            if (imageData.status) {
+              console.log(userInfo);
+              const userInfo = {
+                displayName: data.name,
+                photoURL: imageData.data.url,
+              };
 
-    //           updateUser(userInfo)
-    //             .then(() => {
-    //               saveUser(data.option, data.name, data.email, imageData.data.url);
-    //             })
-    //             .catch((error) => console.log(error));
-    //         }
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     setSignUpError(error.message);
-    //     console.log(error);
-    //   });
+              updateUser(userInfo)
+                .then(() => {
+                  saveUser(data.option, data.name, data.email, imageData.data.url);
+                })
+                .catch((error) => console.log(error));
+            }
+          });
+      })
+      .catch((error) => {
+        setSignUpError(error.message);
+        console.log(error);
+      });
   };
 
   // google login
@@ -81,7 +83,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         // setBuyer(user.email);
-        saveUser("buyer", user?.displayName, user?.email, user?.photoURL);
+        saveUser("employee", user?.displayName, user?.email, user?.photoURL);
 
         setLoading(false);
         navigate(from, { replace: true });
@@ -99,11 +101,12 @@ const SignUp = () => {
       userName,
       email,
       userImage,
+      userCollection: []
     };
 
-    // console.log( 'saveUser', user);
+    console.log( 'saveUser', user);
 
-    fetch("https://sokher-furniture-1md-rakibul-islam.vercel.app/users", {
+    fetch("https://nexusjobs.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

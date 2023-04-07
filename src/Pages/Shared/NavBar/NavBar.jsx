@@ -63,7 +63,7 @@ const NavBar = () => {
                     }
                 </select> */}
                 <div className="flex justify-center">
-                    <button onClick={ () => setOpenPopup(i => !i)} className="flex items-center justify-between w-full pl-3 py-10 border-l-gray-50 border-l-2 border border-gray-300 pr-4 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto 
+                    <button onClick={ () => setOpenPopup(i => !i)} className="flex items-center justify-between w-full border-l-gray-300 border-l-2 border border-gray-300 px-1 hover:bg-transparent hover:text-blue-700 p-0 
                        text-sm font-medium text-center text-gray-900 bg-gray-100 rounded-l-full hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 ">
                         Category 
                         <svg className="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg> 
