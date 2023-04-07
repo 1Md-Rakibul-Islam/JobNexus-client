@@ -12,6 +12,7 @@ import Categories from "../../Pages/Categories/Categories";
 import axios from "axios";
 import Companies from "../../Pages/Companies/Companies";
 import Blogs from "../../Pages/Bolgs/Blogs";
+import JobDetails from "../../Components/JobDetails";
 
 
 export const router = createBrowserRouter([
@@ -28,10 +29,11 @@ export const router = createBrowserRouter([
         loader: async ({params}) => await fetch(`https://nexusjobs.vercel.app/jobs/category/${params.categoryName}`),
         element: <Categories></Categories>,
       },
-      // path: "/project/details/:_id",
-      // loader: async ({params}) => {
-      //   return await fetch(`https://portfolio-rakibul-islam.vercel.app/project/details/${params._id}`)
-      // },
+      {
+        path: "/jobs/details/:_id",
+        loader:  ({params}) => fetch(`https://nexusjobs.vercel.app/jobs/details/${params._id}`),
+        element: <JobDetails></JobDetails>
+      },
       {
         path: "/companies",
         element: <Companies></Companies>,
