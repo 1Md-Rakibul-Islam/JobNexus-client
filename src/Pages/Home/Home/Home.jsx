@@ -121,11 +121,11 @@ const Home = () => {
           <div className="flex flex-wrap -mx-4">
             <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
               <div className="bg-white rounded-lg shadow-lg p-8 h-full">
-                <img
+                {/* <img
                   src="/images/company-logo-1.png"
                   alt="Company Logo"
                   className="mb-6"
-                />
+                /> */}
                 <h3 className="text-2xl font-bold mb-4">Acme Inc.</h3>
                 <p className="text-gray-700">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -141,11 +141,11 @@ const Home = () => {
             </div>
             <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
               <div className="bg-white rounded-lg shadow-lg p-8 h-full">
-                <img
+                {/* <img
                   src="/images/company-logo-2.png"
                   alt="Company Logo"
                   className="mb-6"
-                />
+                /> */}
                 <h3 className="text-2xl font-bold mb-4">Widget Co.</h3>
                 <p className="text-gray-700">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -161,11 +161,11 @@ const Home = () => {
             </div>
             <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
               <div className="bg-white rounded-lg shadow-lg p-8 h-full">
-                <img
+                {/* <img
                   src="/images/company-logo-3.png"
                   alt="Company Logo"
                   className="mb-6"
-                />
+                /> */}
                 <h3 className="text-2xl font-bold mb-4">Gizmo Corp.</h3>
                 <p className="text-gray-700">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed

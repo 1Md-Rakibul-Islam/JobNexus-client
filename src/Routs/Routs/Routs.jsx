@@ -14,6 +14,7 @@ import Companies from "../../Pages/Companies/Companies";
 import Blogs from "../../Pages/Bolgs/Blogs";
 import JobDetails from "../../Components/JobDetails";
 import Jobs from "../../Pages/Jobs/Jobs";
+import Service from "../../Pages/Service/Service";
 
 
 export const router = createBrowserRouter([
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: "/jobs",
         element: <Jobs></Jobs>,
+      },
+      {
+        path: "/Service",
+        element: <Service></Service>,
       },
       {
         path: "/jobs/category/:categoryName",
