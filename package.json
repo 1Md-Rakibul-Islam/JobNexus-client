@@ -25,7 +25,8 @@
     "react-photo-view": "^1.2.3",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.4.2",
-    "recharts": "^2.5.0"
+    "recharts": "^2.5.0",
+    "swiper": "^9.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.22",

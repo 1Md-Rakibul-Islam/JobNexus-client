@@ -43,7 +43,7 @@ const NavBar = () => {
         <div className="md:block hidden w-auto" >
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-4 md:mt-0 md:border-0 ">
             <li>
-              <Link to='/'>Jobs</Link>
+              <Link to='/jobs'>Jobs</Link>
             </li>
             { 
               navItems.map(navItem => (

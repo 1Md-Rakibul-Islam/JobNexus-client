@@ -13,6 +13,7 @@ import axios from "axios";
 import Companies from "../../Pages/Companies/Companies";
 import Blogs from "../../Pages/Bolgs/Blogs";
 import JobDetails from "../../Components/JobDetails";
+import Jobs from "../../Pages/Jobs/Jobs";
 
 
 export const router = createBrowserRouter([
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/jobs",
+        element: <Jobs></Jobs>,
       },
       {
         path: "/jobs/category/:categoryName",

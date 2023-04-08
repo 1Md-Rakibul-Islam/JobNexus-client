@@ -21,7 +21,7 @@ const JobDetails = () => {
     } = useLoaderData();
   
     return (
-        <section className='max-w-[1000px] mx-auto  pt-16'>
+        <section className='max-w-[800px] mx-auto  pt-16'>
         <div className="bg-white  my-10 shadow overflow-hidden sm:rounded-lg">
             <div className="px-4 py-5 sm:px-6">
             <h3 className="text-lg leading-6 font-medium text-gray-900">{jobTitle}</h3>
